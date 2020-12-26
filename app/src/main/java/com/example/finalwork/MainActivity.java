@@ -1,13 +1,13 @@
 package com.example.finalwork;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActitvty extends AppCompatActivity {
+public class MainActivity extends Activity {
     TextView pyTv,bsTv,cyuTv,twenTv,juziTv;
     EditText ziEt;
     @Override
@@ -27,25 +27,27 @@ public class MainActitvty extends AppCompatActivity {
     }
 
     public void onClick(View view){
-       switch (view.getId()){
-           case R.id.main_iv_setting:
+        Intent intent =  new Intent();
+        switch (view.getId()){
+            case R.id.main_iv_setting:
 
-               break;
-           case R.id.main_iv_search:
+                break;
+            case R.id.main_iv_search:
 
-               break;
-           case R.id.main_tv_pinyin:
+                break;
+            case R.id.main_tv_pinyin:
+                intent.setClass(this,SearchPinyinActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.main_tv_bushou:
 
-               break;
-           case R.id.main_tv_bushou:
+                break;
+            case R.id.main_tv_chengyu:
 
-               break;
-           case R.id.main_tv_chengyu:
+                break;
+            case R.id.main_tv_tuwen:
 
-               break;
-           case R.id.main_tv_tuwen:
-
-               break;
-       }
+                break;
+        }
     }
 }
