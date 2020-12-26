@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">finalwork</string>
+    <string name="app_name">中华字典</string>
+    <string name="main_et_hint">请输入查询汉字</string>
+    <string name="main_tv_pinyin">拼音查询</string>
+    <string name="main_tv_bushou">部首查询</string>
+    <string name="main_tv_chengyu">成语查询</string>
+    <string name="main_tv_tuwen">图文识别</string>
+    <string name="main_tv_yiju">每日一句</string>
+    <string name="main_tv_yiju2">盛年不重来，一日难再晨。及时宜自勉，岁月不待人。——陶渊明</string>
 </resources>
