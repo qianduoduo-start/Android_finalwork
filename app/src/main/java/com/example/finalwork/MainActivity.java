@@ -3,6 +3,7 @@ package com.example.finalwork;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,7 +34,12 @@ public class MainActivity extends Activity {
 
                 break;
             case R.id.main_iv_search:
-
+                String text = ziEt.getText().toString();
+                if (!TextUtils.isEmpty(text)) {
+                    intent.setClass(this,WordInfoActivity.class);
+                    intent.putExtra("zi",text);
+                    startActivity(intent);
+                }
                 break;
             case R.id.main_tv_pinyin:
                 intent.setClass(this,SearchPinyinActivity.class);

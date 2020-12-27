@@ -15,7 +15,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table pywordtb(_id integer primary key autoincrement,is varchar(20),zi varchar(4) unique not null,"+
+        String sql = "create table pywordtb(_id integer primary key autoincrement,id varchar(20),zi varchar(4) unique not null,"+
         "py varchar(10),wubi varcher(10),pinyin varchar(10),bushou varchar(4),bihua integer)";
         db.execSQL(sql);
     }

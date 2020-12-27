@@ -1,10 +1,13 @@
 <resources>
-    <string name="app_name">中华字典</string>
-    <string name="main_et_hint">请输入查询汉字</string>
-    <string name="main_tv_pinyin">拼音查询</string>
-    <string name="main_tv_bushou">部首查询</string>
-    <string name="main_tv_chengyu">成语查询</string>
-    <string name="main_tv_tuwen">图文识别</string>
-    <string name="main_tv_yiju">每日一句</string>
-    <string name="main_tv_yiju2">盛年不重来，一日难再晨。及时宜自勉，岁月不待人。——陶渊明</string>
+    <string name="app_name" translatable="false">中华字典</string>
+    <string name="main_et_hint" translatable="false">请输入查询汉字</string>
+    <string name="main_tv_pinyin" translatable="false">拼音查询</string>
+    <string name="main_tv_bushou" translatable="false">部首查询</string>
+    <string name="main_tv_chengyu" translatable="false">成语查询</string>
+    <string name="main_tv_tuwen" translatable="false">图文识别</string>
+    <string name="main_tv_yiju" translatable="false">每日一句</string>
+    <string name="word_tv_info" translatable="false">文字详情</string>
+    <string name="word_tv_basicjs" translatable="false">基本释义</string>
+    <string name="word_tv_desjs" translatable="false">详细解释</string>
+    <string name="main_tv_yiju2" translatable="false">盛年不重来，一日难再晨。及时宜自勉，岁月不待人。——陶渊明</string>
 </resources>

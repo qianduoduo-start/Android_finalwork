@@ -1,5 +1,6 @@
 package com.example.finalwork;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -88,7 +89,11 @@ public class BaseSearchActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //跳转到详情页面
-
+                PinBuWordBean.ResultBean.ListBean bean = gridDatas.get(position);
+                String zi = bean.getZi();
+                Intent intent = new Intent(getBaseContext(), WordInfoActivity.class);
+                intent.putExtra("zi",zi);
+                startActivity(intent);
             }
         });
     }
