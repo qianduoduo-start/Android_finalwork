@@ -1,6 +1,7 @@
 package com.example.finalwork.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.finalwork.R;
 import com.example.finalwork.bean.PinBuBean;
+import com.example.finalwork.utils.CommonUtils;
 
 import java.util.List;
 
@@ -18,12 +20,23 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
     List<String> groupDatas; //表示分组的列表
     List<List<PinBuBean.ResultBean>> childDatas; //将每组对应的子列表放入集合
     LayoutInflater inflater;
-    //表示选中的组的位置和组下面的
+    //确定是选择的拼音还是部首
+    int type;
+    //表示选中的组的位置和组下面的子列表的位置
     int selectGroupPos = 0,selectChildPos =0;
-    public SearchLeftAdapter(Context context,List<String> groupDatas, List<List<PinBuBean.ResultBean>> childDatas){
+    public void setSelectGroupPos(int selectGroupPos){
+        this.selectGroupPos = selectGroupPos;
+    }
+
+    public void setSelectChildPos(int selectChildPos){
+        this.selectChildPos = selectChildPos;
+    }
+
+    public SearchLeftAdapter(Context context,List<String> groupDatas, List<List<PinBuBean.ResultBean>> childDatas,int type){
         this.context = context;
         this.groupDatas = groupDatas;
         this.childDatas = childDatas;
+        this.type = type;
         //初始化布局加载器
         inflater = LayoutInflater.from(context);
     }
@@ -80,20 +93,53 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         }
         //获取指定位置的数据
         String word = groupDatas.get(groupPosition);
-        holder.groupTv.setText(word);
+        if (type == CommonUtils.TYPE_PINYIN) {
+            holder.groupTv.setText(word);
+        }else {
+            holder.groupTv.setText(word + "划");
+        }
 
         //选中会改变颜色，所以判断是否被选中
+        if (selectGroupPos == groupPosition) {
+            convertView.setBackgroundColor(Color.BLACK);
+            holder.groupTv.setTextColor(Color.RED);
+        }else{
+            convertView.setBackgroundResource(R.color.grey_f3f3f3);
+            holder.groupTv.setTextColor(Color.BLACK);
+        }
         return convertView;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        return null;
+        ChildViewHolder holder = null;
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.item_exlv_child,null);
+            holder = new ChildViewHolder(convertView);
+            convertView.setTag(holder);
+        }else{
+            holder = (ChildViewHolder) convertView.getTag();
+        }
+        PinBuBean.ResultBean bean = childDatas.get(groupPosition).get(childPosition);
+        if (type == CommonUtils.TYPE_PINYIN) {
+            holder.childTv.setText(bean.getPinyin());
+        }else {
+            holder.childTv.setText(bean.getBushou());
+        }
+        //子类选中颜色
+        if(selectGroupPos == groupPosition && selectChildPos == childPosition){
+            convertView.setBackgroundColor(Color.WHITE);
+            holder.childTv.setTextColor(Color.RED);
+        }else{
+            convertView.setBackgroundResource(R.color.grey_f3f3f3);
+            holder.childTv.setTextColor(Color.BLACK);
+        }
+        return convertView;
     }
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return false;
+        return true;
     }
 
     class GroupViewHolder{

@@ -40,7 +40,8 @@ public class MainActivity extends Activity {
                 startActivity(intent);
                 break;
             case R.id.main_tv_bushou:
-
+                intent.setClass(this,SearchBushouActivity.class);
+                startActivity(intent);
                 break;
             case R.id.main_tv_chengyu:
 
