@@ -7,5 +7,6 @@ public class CommonUtils {
     public static final String FILE_BUSHOU= "bushou.txt";
 
     public static final String TABLE_PYWORDTB = "pywordtb";
+    public static final String TABLE_WORDTB = "wordtb";
 
 }

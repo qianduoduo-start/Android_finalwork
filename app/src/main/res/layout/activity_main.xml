@@ -14,15 +14,6 @@
         <TextView
            style="@style/titleTvStyle"
             android:text="@string/app_name"/>
-        <ImageView
-            android:id="@+id/main_iv_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="onClick"
-            android:src="@mipmap/ic_setting"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            />
     </RelativeLayout>
 
     <RelativeLayout
@@ -57,7 +48,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
         android:background="@color/white"
-        android:weightSum="4">
+        android:weightSum="2">
         <TextView
             android:id="@+id/main_tv_pinyin"
             style="@style/mainTvStyle"
@@ -70,17 +61,6 @@
             android:drawableTop="@mipmap/m_bushou"
             android:text="@string/main_tv_bushou"/>
 
-        <TextView
-            android:id="@+id/main_tv_chengyu"
-            style="@style/mainTvStyle"
-            android:drawableTop="@mipmap/m_chengyu"
-            android:text="@string/main_tv_chengyu"/>
-
-        <TextView
-            android:id="@+id/main_tv_tuwen"
-            style="@style/mainTvStyle"
-            android:drawableTop="@mipmap/m_xiangji"
-            android:text="@string/main_tv_tuwen"/>
     </LinearLayout>
 
     <LinearLayout

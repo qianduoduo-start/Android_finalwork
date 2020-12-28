@@ -22,7 +22,6 @@ import java.util.List;
 public class WordInfoActivity extends BaseActivity {
     TextView ziTv,pyTv,wubiTv,bihuaTv,bushouTv,jsTv,xxjsTv;
     ListView jsLv;
-    ImageView collectIv;
     String zi;
     List<String> mDatas;
     private ArrayAdapter<String> stringArrayAdapter;
@@ -55,14 +54,13 @@ public class WordInfoActivity extends BaseActivity {
         jsTv = findViewById(R.id.word_tv_js);
         xxjsTv = findViewById(R.id.word_tv_xxjs);
         jsLv = findViewById(R.id.word_lv_js);
-        collectIv = findViewById(R.id.wordinfo_iv_collection);
     }
     @Override
     public void onSuccess(String json) {
         WordBean wordBean = new Gson().fromJson(json, WordBean.class);
         WordBean.ResultBean resultBean = wordBean.getResult();
         // 插入数据库
-
+        DBManager.insertWordToWordtb(resultBean);
         // 将数据显示
         notifyView(resultBean);
     }
@@ -83,17 +81,16 @@ public class WordInfoActivity extends BaseActivity {
 
     @Override
     public void onError(Throwable ex, boolean isOnCallback) {
-
+        WordBean.ResultBean bean = DBManager.queryWordFromWordtb(zi);
+        if (bean!=null) {
+            notifyView(bean);
+        }
     }
 
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.wordinfo_iv_back:
                 finish();
-                break;
-            case R.id.wordinfo_iv_collection:
-                //将收藏状态取反
-              
                 break;
             case R.id.word_tv_js:
                 jsTv.setTextColor(Color.RED);

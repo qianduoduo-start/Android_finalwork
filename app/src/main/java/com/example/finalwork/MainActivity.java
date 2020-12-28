@@ -21,8 +21,6 @@ public class MainActivity extends Activity {
     protected void initView(){
         pyTv = findViewById(R.id.main_tv_pinyin);
         bsTv = findViewById(R.id.main_tv_bushou);
-        cyuTv = findViewById(R.id.main_tv_chengyu);
-        twenTv = findViewById(R.id.main_tv_tuwen);
         juziTv = findViewById(R.id.mian_tv_juzi);
         ziEt = findViewById(R.id.mian_et);
     }
@@ -30,9 +28,6 @@ public class MainActivity extends Activity {
     public void onClick(View view){
         Intent intent =  new Intent();
         switch (view.getId()){
-            case R.id.main_iv_setting:
-
-                break;
             case R.id.main_iv_search:
                 String text = ziEt.getText().toString();
                 if (!TextUtils.isEmpty(text)) {
@@ -48,12 +43,6 @@ public class MainActivity extends Activity {
             case R.id.main_tv_bushou:
                 intent.setClass(this,SearchBushouActivity.class);
                 startActivity(intent);
-                break;
-            case R.id.main_tv_chengyu:
-
-                break;
-            case R.id.main_tv_tuwen:
-
                 break;
         }
     }

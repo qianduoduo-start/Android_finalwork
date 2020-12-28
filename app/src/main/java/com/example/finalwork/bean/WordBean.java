@@ -61,6 +61,21 @@ public class WordBean {
         private List<String> jijie;
         private List<String> xiangjie;
 
+        public ResultBean(String id, String zi, String py, String wubi, String pinyin, String bushou, String bihua, List<String> jijie, List<String> xiangjie) {
+            this.id = id;
+            this.zi = zi;
+            this.py = py;
+            this.wubi = wubi;
+            this.pinyin = pinyin;
+            this.bushou = bushou;
+            this.bihua = bihua;
+            this.jijie = jijie;
+            this.xiangjie = xiangjie;
+        }
+
+        public ResultBean() {
+        }
+
         public String getId() {
             return id;
         }

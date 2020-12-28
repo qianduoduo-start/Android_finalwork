@@ -19,22 +19,12 @@
         <TextView
             style="@style/titleTvStyle"
             android:text="@string/word_tv_info"/>
-
-        <ImageView
-            android:id="@+id/wordinfo_iv_collection"
-            android:layout_width="41dp"
-            android:layout_height="21dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="0dp"
-            android:onClick="onClick"
-            android:src="@mipmap/ic_collection" />
     </RelativeLayout>
     <TextView
         android:id="@+id/word_tv_zi"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="啊"
+        android:text=""
         android:layout_below="@+id/word_layout_top"
         android:layout_centerHorizontal="true"
         android:textSize="70sp"
@@ -48,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/word_tv_zi"
         android:layout_centerHorizontal="true"
-        android:text="a"
+        android:text=""
         android:textSize="30sp"
         android:gravity="center"
         android:textColor="@color/black"
